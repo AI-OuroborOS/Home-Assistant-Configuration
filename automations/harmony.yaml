@@ -1,0 +1,46 @@
+- alias: Harmony Select Channel
+  trigger:
+    platform: state
+    entity_id: input_select.tv_source
+  action:
+    - delay: 00:00:05
+    - service: remote.turn_on
+      data_template:
+        entity_id: remote.harmony_hub
+        activity: >
+          {% if is_state("input_select.tv_source", "Apple TV") %}
+            31986002
+          {% elif is_state("input_select.tv_source", "Xbox One X") %}
+            31986022
+          {% elif is_state("input_select.tv_source", "Recalbox") %}
+            32031978
+          {% elif is_state("input_select.tv_source", "Extern") %}
+            27928482
+          {% endif %}
+
+#- alias: Turn on Ambilight
+#  trigger:
+#    platform: state
+#    entity_id: remote.harmony_hub
+#    from: "off"
+#  action:
+#    - service: switch.turn_on
+#      entity_id: switch.ambilight
+
+- alias: Reset Input Select
+  trigger:
+    platform: state
+    entity_id: input_select.tv_source
+  action:
+    - delay: 00:00:05
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_source
+        option: Select Source
+
+
+
+
+
+
+

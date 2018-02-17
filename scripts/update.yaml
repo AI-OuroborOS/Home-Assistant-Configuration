@@ -1,0 +1,4 @@
+update_ha:
+  sequence:
+    - alias: Update Home-Assistant
+      service: shell_command.update_ha

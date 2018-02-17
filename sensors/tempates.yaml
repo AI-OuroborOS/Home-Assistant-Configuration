@@ -1,0 +1,7 @@
+- platform: template
+  sensors:
+    harmony_activity:
+      value_template: '{{ states.remote.harmony_hub.attributes.current_activity }}'
+      friendly_name: 'Harmony Activity'
+
+

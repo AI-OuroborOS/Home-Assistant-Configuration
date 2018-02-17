@@ -1,0 +1,154 @@
+############################################################
+### Switches
+############################################################
+
+switch.rpi_display:
+  icon: mdi:monitor
+  friendly_name: HomePi Display
+
+switch.tv_wall:
+  icon: mdi:monitor
+
+############################################################
+### Scripts
+############################################################
+
+script.update_ha:
+  icon: mdi:update
+  friendly_name: "Update Home-Asssitant"  
+  
+############################################################
+### People
+############################################################
+
+device_tracker.iphoene:
+  entity_picture: /local/pictures/mike.png
+  friendly_name: Mike
+
+device_tracker.iphone_catherine_:
+  entity_picture: /local/pictures/katharina.png
+  friendly_name: Katharina
+
+############################################################
+### Lights
+############################################################
+
+switch.window_lights:
+  icon: mdi:windows
+  
+light.aurora_wohnzimmer:
+  icon: mdi:triangle-outline
+
+############################################################
+# Automations
+############################################################
+
+automation.flic_musik_studio:
+  icon: mdi:music-note
+
+automation.harmony_select_channel:
+  icon: mdi:remote
+
+automation.reset_input_select:
+  icon: mdi:autorenew
+
+############################################################
+### Groups
+############################################################
+
+group.systemmonitor:
+  icon: mdi:settings
+
+group.esstisch:
+  icon: mdi:lightbulb
+
+group.gwifi:
+  icon: mdi:google-analytics
+
+group.speedtest:
+  icon: mdi:speedometer
+
+group.wetter:
+  icon: mdi:weather-partlycloudy
+
+############################################################
+### Sensors
+############################################################
+
+sensor.dark_sky_summary:
+  friendly_name: Zusammenfassung
+
+sensor.dark_sky_temperature:
+  entity_picture: /local/icons/temp.png
+  friendly_name: Termperatur
+
+sensor.dark_sky_wind_speed:
+  entity_picture: /local/icons/darksky/png/wind.png
+  friendly_name: Windgeschwindigkeit
+
+sensor.dark_sky_humidity:
+  entity_picture: /local/icons/raindrop.png
+  friendly_name: Luftfeuchtigkeit
+  
+sensor.dark_sky_daily_low_temperature:
+  entity_picture: /local/icons/low_temp.png
+  friendly_name: Tiefst Temperatur  
+
+sensor.dark_sky_daily_high_temperature:
+  entity_picture: /local/icons/high_temp.png
+  friendly_name: Höchst Temperatur
+
+sensor.otp_sensor:
+  icon: mdi:lock-reset
+
+sensor.cpu_use:
+  entity_picture: /local/icons/cpu.png
+  friendly_name: CPU Auslastung
+
+sensor.disk_use_:
+  icon: mdi:harddisc
+  friendly_name: Festplatten Auslastung
+  
+sensor.ram_free:
+  icon: mdi:chip
+  friendly_name: Freier Arbeitsspreicher
+  
+sensor.received_wlan0:
+  icon: mdi:cloud-download
+  friendly_name: Empfangen
+  
+sensor.sent_wlan0:
+  icon: mdi:cloud-upload
+  friendly_name: Gesendet
+  
+sensor.last_boot:
+  icon: mdi:restart
+  friendly_name: Letzter System start
+  
+sensor.speedtest_ping:
+  icon: mdi:speedometer
+  
+sensor.speedtest_download:
+  icon: mdi:cloud-download
+  
+sensor.speedtest_upload:
+  icon: mdi:cloud-upload
+  
+sensor.google_wifi_last_restart:
+  icon: mdi:restart
+  friendly_name: Letzter Neustart
+
+sensor.google_wifi_new_version:
+  icon: mdi:update
+  friendly_name: Update erfoderlich
+
+sensor.google_wifi_status:
+  icon: mdi:power-settings
+  friendly_name: Status
+
+sensor.google_wifi_uptime:
+  icon: mdi:chart-timeline
+  friendly_name: Laufzeit
+
+sensor.ssl_certificate_expiry:
+  friendly_name: Home-Asssistant Cert

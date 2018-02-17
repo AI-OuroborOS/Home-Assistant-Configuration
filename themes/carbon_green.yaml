@@ -1,0 +1,75 @@
+carbon-green: 
+  #Color List
+  make-light-carbon: "#93A5AB"
+  make-carbon: "#111924"
+  make-grey: "#DEE5E7"
+  make-green: "#C2DD08"s
+  make-blue: "#00A3DA"
+  make-red: "#EC5D57"
+  make-yellow: "#FCF933"
+  make-orange: "#E49D64"
+  make-white: "#FFFFFF"
+  make-disable: "#bdbdbd"
+  light-primary-color: "var(make-light-carbon)"
+  background-color: "var(--make-grey)"
+  dark-primary-color: "var(-make-carbon)"
+  #Main Colors
+  primary-background-color: "var(--make-light-carbon)" #Hintergrund Farbe Einstellungen
+  secondary-background-color: "var(--make-grey)" #Hintergrund der Tabs
+  primary-text-color: "var(--make-carbon)" #Primärer Text 
+  secondary-text-color: "var(--make-green)" #Unterschriften etc.
+  disabled-text-color: "var(--make-disable)" #Deaktivierte Text
+  divider-color: "var(--make-green)" #Trenn Linien
+  primary-color: "var(--make-carbon)" #Head von HA 
+  #Labels
+  label-badge-red: "var(--make-red)"
+  label-badge-blue: "var(--make-blue)"
+  label-badge-green: "var(--make-green)"
+  label-badge-yellow: "var(--make-yellow)"
+  label-badge-grey: "var(--make-grey)"
+  label-badge-text-color: "var(--make-carbon)" #Schrift Sensoren
+  label-badge-background-color: "var(--make-grey)" #Hintergrund Sensoren
+  #Google Loading
+  google-red-500: "var(--make-red)"
+  google-blue-500: "var(--make-blue)"
+  google-green-500:  "var(--make-green)"
+  google-yellow-500: "var(--make-yellow)"
+  #Frontend
+  paper-green-400: "var(--make-green)"
+  paper-blue-400: "var(--make-blue)"
+  paper-orange-400: "var(--make-orange)"
+  paper-grey-50: "var(--make-grey)"
+  paper-grey-200: "var(--make-green)"
+  paper-item-icon-color: "var(--make-grey)" #Farbe der Icons Aus
+  paper-item-icon-active-color: "var(--make-green)" #Farbe der Icons An
+  paper-toggle-button-checked-ink-color: "var(--make-green)"
+  paper-toggle-button-checked-button-color: "var(--make-green)"
+  paper-toggle-button-checked-bar-color: "var(--make-green)"
+  paper-toggle-button-unchecked-button-color: "var(--make-grey)"
+  paper-toggle-button-unchecked-bar-color: "var(--make-grey)"
+  paper-toggle-button-unchecked-ink-color: "var(--make-grey)"
+  paper-slider-knob-color: "var(--make-carbon)" #Slider Punkt AN
+  paper-slider-knob-start-color: "var(--make-carbon)" #Slider Punkt Aus
+  paper-slider-pin-color: "var(--make-red)" #
+  paper-slider-active-color: "var(--make-carbon)" #Slider Strich Farbe Aktiv
+  paper-slider-secondary-color: "var(--make-red)" #
+  paper-slider-container-color: "var(--make-light-carbon)" #Slider Strich Farbe Inaktiv
+  paper-listbox-color: "var(--make-carbon)"  #Text in Dorpdown box
+  paper-listbox-background-color: "var(--make-grey)" #Hintergrund von Listen 
+  paper-card-background-color: "var(--make-light-carbon)" #Hintergrund der Karten in einem Tab
+  paper-card-header-color: "var(--make-carbon)" #Überschriften in Einstellungen Karten
+  paper-dialog-background-color: "var(--make-grey)" #Farbe Dialog Boxen 
+  paper-item-selected_-_background-color: "var(--make-green)" #Ausgewählte Option in Dropdown
+  paper-tabs-selection-bar-color: "var(--make-red)" #
+  table-row-background-color: "var(--make-grey)" #Hintergrund Farbe Tabellen 
+  table-row-alternative-background-color: "var(--make-gery)" #Zweite Hintergrundfarbe 
+  #Font
+  primary-font-family: "Gill Sans"
+  paper-font-common-base_-_font-family: "var(--primary-font-family)"
+  paper-font-common-code_-_font-family: "var(--primary-font-family)"
+  paper-font-body1_-_font-family: "var(--primary-font-family)"
+  paper-font-subhead_-_font-family: "var(--primary-font-family)"
+  paper-font-headline_-_font-family: "var(--primary-font-family)"
+  paper-font-caption_-_font-family: "var(--primary-font-family)"
+  paper-font-title_-_font-family: "var(--primary-font-family)"
+

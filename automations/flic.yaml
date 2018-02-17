@@ -1,0 +1,86 @@
+- alias: Mikes Licht
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da72f3eb
+        click_type: single
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da72f504
+        click_type: double
+  action:
+    service: homeassistant.toggle
+    entity_id: switch.mikes_licht
+
+- alias: Katharinas Licht
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da72f3eb
+        click_type: double
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da72f504
+        click_type: single
+  action:
+    service: homeassistant.toggle
+    entity_id: switch.katharinas_licht
+
+- alias: Alle Lichter
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da72f3eb
+        click_type: hold
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da72f504
+        click_type: hold
+  action:
+    service: homeassistant.turn_off
+    entity_id: 
+      - group.all_lights
+      - group.all_switches
+
+- alias: Flic Mischpult
+  trigger:
+    platform: event
+    event_type: flic_click
+    event_data:
+      button_name: flic_80e4da72e4f6
+      click_type: single
+  action:
+    service: homeassistant.toggle
+    entity_id: switch.mischpult
+
+- alias: Flic Plattenspieler
+  trigger:
+    platform: event
+    event_type: flic_click
+    event_data:
+      button_name: flic_80e4da72e4f6
+      click_type: double
+  action:
+    service: homeassistant.toggle
+    entity_id: switch.plattenspieler
+
+- alias: Flic Musik Studio
+  trigger:
+    platform: event
+    event_type: flic_click
+    event_data:
+      button_name: flic_80e4da72e4f6
+      click_type: hold
+  action:
+    service: homeassistant.turn_off
+    entity_id:
+      - switch.mischpult
+      - switch.plattenspieler
+ 
+

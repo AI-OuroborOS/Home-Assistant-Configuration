@@ -1,0 +1,4 @@
+- platform: spotify
+  client_id: !secret spot_id
+  client_secret: !secret spot_secret
+

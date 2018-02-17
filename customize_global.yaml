@@ -1,0 +1,47 @@
+############################################################
+# Automations
+############################################################
+
+"automation.*licht*":
+  icon: mdi:lightbulb-outline
+
+"automation.turn_*_ambilight":
+  icon: mdi:spotlight
+
+"automation.presence_controll_*":
+  icon: mdi:map-marker
+
+"automation.schedule_window_lights_*":
+  icon: mdi:windows
+
+"automation.schedule_rpi_display_*":
+  icon: mdi:monitor
+
+############################################################
+### Groups
+############################################################
+
+"group.all_*":
+  hidden: false
+
+"group.light_*":
+  icon: mdi:lightbulb-outline
+
+############################################################
+### Sensors
+############################################################
+
+sensor.*current_version:
+  friendly_name: Aktuelle Version
+  icon: mdi:settings
+  
+"*mischpult*":
+  icon: mdi:tune
+
+"*plattenspiele*":
+  icon: mdi:album
+
+"*ip*":
+  icon: mdi:wifi
+  friendly_name: IP
+

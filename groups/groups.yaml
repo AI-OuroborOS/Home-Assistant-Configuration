@@ -1,0 +1,151 @@
+############################################################
+### All Sensors
+############################################################
+
+all_sensors:
+  name: Sensors
+  entities:
+    - binary_sensor.flic_80e4da72e4f6
+    - binary_sensor.flic_80e4da72f3eb
+    - binary_sensor.flic_80e4da72f504
+    - sensor.dark_sky_daily_high_temperature
+    - sensor.dark_sky_daily_low_temperature
+    - sensor.dark_sky_humidity
+    - sensor.dark_sky_summary
+    - sensor.dark_sky_temperature
+    - sensor.dark_sky_wind_speed
+    - sensor.google_wifi_current_version
+    - sensor.google_wifi_last_restart
+    - sensor.google_wifi_local_ip
+    - sensor.google_wifi_new_version
+    - sensor.google_wifi_status
+    - sensor.google_wifi_uptime
+    - sensor.harmony_activity
+    - sensor.iphoene_battery_level
+    - sensor.iphoene_battery_state
+    - sensor.iphone_catherine__battery_level
+    - sensor.iphone_catherine__battery_state
+    - sensor.cpu_used
+    - sensor.disk_used_
+    - sensor.ipv4_address_wlan0
+    - sensor.last_boot
+    - sensor.ram_available
+    - sensor.received_wlan0
+    - sensor.sent_wlan0
+    - sensor.speedtest_download
+    - sensor.speedtest_ping
+    - sensor.speedtest_upload
+    - sensor.otp_sensor
+    - sensor.ssl_certificate_expiry
+    - history_graph.temperatur
+
+############################################################
+### System - Monitor
+############################################################
+
+systemmonitor:
+  name: Systemmonitor
+  entities:
+    - sensor.otp_sensor
+    - sensor.ssl_certificate_expiry
+    - sensor.ssl_certificate_expiry_2
+    - sensor.cpu_used
+    - sensor.ram_available
+    - sensor.disk_used_
+    - sensor.ipv4_address_wlan0
+    - sensor.received_wlan0
+    - sensor.sent_wlan0
+    - sensor.last_boot
+    - switch.rpi_display
+    - sensor.aktuelles_release
+    - sensor.current_version
+    - script.update_ha
+
+############################################################
+### Wetter - Card
+############################################################
+
+dark_wetter:
+  name: Wetter
+  entities:
+    - sensor.dark_sky_summary
+    - sensor.dark_sky_temperature
+    - history_graph.temperatur
+    - sensor.dark_sky_wind_speed
+    - sensor.dark_sky_humidity
+    - sensor.dark_sky_daily_low_temperature
+    - sensor.dark_sky_daily_high_temperature
+
+############################################################
+### Speedtest - Card
+############################################################
+
+speedtest:
+  name: Speedtest
+  entities:
+    - sensor.speedtest_ping
+    - sensor.speedtest_download
+    - sensor.speedtest_upload
+
+############################################################
+### Google WiFi
+############################################################
+
+gWiFI:
+  name: Google WiFi
+  entities:
+    - sensor.google_wifi_current_version
+    - sensor.google_wifi_last_restart
+    - sensor.google_wifi_local_ip
+    - sensor.google_wifi_new_version
+    - sensor.google_wifi_status
+    - sensor.google_wifi_uptime
+
+############################################################
+### Lichter
+############################################################
+
+light_schlafzimmer:
+  name: Licht
+  entities:
+    - light.schlafzimmer
+    - switch.katharinas_licht
+    - switch.mikes_licht
+
+light_kuche:
+  name: Licht
+  entities:
+    - switch.kuche_licht
+    - light.arbeitsflache
+
+light_wohnzimmer:
+  name: Licht
+  entities:
+    - group.esstisch
+    - light.fenster
+    - light.sidedesk
+    - light.hyperion
+    - light.aurora_wohnzimmer
+
+esstisch:
+  name: Esstisch
+  entities:
+    - light.esstisch_1
+    - light.esstisch_2
+
+harmony:
+  name: Harmony
+  icon: mdi:sofa
+  entities:
+    - remote.harmony_hub
+    - input_select.tv_source
+
+############################################################
+### Shopping
+############################################################
+
+shopping:
+  name: Shopping
+  entities:
+    - sensor.xiaomi_vacuum_2
+    - sensor.xiaomi_mi_mix_2

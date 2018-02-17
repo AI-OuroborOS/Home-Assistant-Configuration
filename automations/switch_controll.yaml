@@ -1,0 +1,59 @@
+- alias: Schedule Window Lights On
+  hide_entity: false
+  trigger:
+    - platform: sun
+      event: sunset
+  action:
+    - service: switch.turn_on
+      entity_id: switch.windows_lights
+
+- alias: Schedule Window Lights Off
+  hide_entity: false
+  trigger:
+    - platform: time
+      at: '00:00:00'
+  action:
+    - service: switch.turn_off 
+      entity_id: switch.window_lights
+
+- alias: Presence Controll On
+  hide_entity: false
+  trigger:
+    - platform: state
+      entity_id: device_tracker.iphoene, device_tracker.iphone_catherine_
+      to: 'home'
+  action:
+    - service: switch.turn_on 
+      entity_id: 
+        - switch.tv_wall
+        - switch.rpi_displays
+
+- alias: Presence Controll Off
+  hide_entity: false
+  trigger:
+    - platform: state
+      entity_id: device_tracker.iphoene, device_tracker.iphone_catherine_
+      to: 'away'
+  action:
+    - service: group.turn_off 
+      entity_id: 
+        - group.all_switches
+        - group.all_lights
+
+- alias: Schedule RPI Display ON
+  hide_entity: false
+  trigger:
+    - platform: time
+      at: '09:00:00'
+  action:
+    - service: switch.turn_on 
+      entity_id: switch.rpi_display
+
+- alias: Schedule RPI Display OFF
+  hide_entity: false
+  trigger:
+    - platform: time
+      at: '23:00:00'
+  action:
+    - service: switch.turn_off 
+      entity_id: switch.rpi_display

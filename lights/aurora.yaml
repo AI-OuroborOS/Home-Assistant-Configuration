@@ -1,0 +1,4 @@
+- platform: aurora
+  host: !secret auro_ip
+  api_key: !secret auro_api
+  name: Aurora Wohnzimmer

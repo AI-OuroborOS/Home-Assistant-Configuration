@@ -1,0 +1,13 @@
+- name: Home
+  icon: mdi:home
+  latitude: !secret latitude_home
+  longitude: !secret longitude_home
+  radius: 50
+
+- name: Office
+  icon: mdi:home-modern
+  latitude: !secret latitude_work
+  longitude: !secret longitude_work
+  radius: 50
+
+

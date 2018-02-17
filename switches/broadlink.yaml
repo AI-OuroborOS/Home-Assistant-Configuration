@@ -1,0 +1,4 @@
+- platform: broadlink
+  host: !secret broa_ip
+  mac: !secret broa_mac
+  switches: !include_dir_merge_named broadlink/

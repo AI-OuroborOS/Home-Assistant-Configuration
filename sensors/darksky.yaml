@@ -1,0 +1,10 @@
+- platform: darksky
+  api_key: !secret dark_api
+  monitored_conditions:
+    - summary
+    - temperature
+    - wind_speed
+    - humidity
+    - temperature_max
+    - temperature_min
+  units: auto

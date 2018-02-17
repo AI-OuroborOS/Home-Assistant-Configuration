@@ -1,0 +1,5 @@
+- platform: command_line
+  switches:
+    rpi_display:
+      command_on: "sudo sh /home/pi/Skripts/screen_on.sh"
+      command_off: "sudo sh /home/pi/Skripts/screen_off.sh"

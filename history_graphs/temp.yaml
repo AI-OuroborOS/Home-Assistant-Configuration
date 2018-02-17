@@ -1,0 +1,6 @@
+gr1:
+  name: Temperatur
+  entities:
+    - sensor.dark_sky_temperature
+  hours_to_show: 60
+  refresh: 60

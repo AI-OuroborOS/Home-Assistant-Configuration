@@ -1,0 +1,3 @@
+- platform: cert_expiry
+  host: !secret cert_host
+  port: !secret cert_port

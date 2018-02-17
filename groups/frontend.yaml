@@ -1,0 +1,113 @@
+############################################################
+### Default
+############################################################
+
+default_view:
+  view: yes
+  icon: mdi:home
+  entities:
+    - group.dark_wetter
+    - media_player.spotify
+
+############################################################
+### Wohnzimmer
+############################################################
+
+wohnzimmer:
+  name: Wohnzimmer
+  icon: mdi:sofa
+  view: yes
+  entities:
+    - group.light_wohnzimmer
+    - switch.window_lights
+    - switch.tv_wall
+    - group.fernseher
+    - media_player.appletv
+    - media_player.wohnzimmer
+    - media_player.panasonic_viera_tv
+    - group.harmony
+    - switch.ambilight
+    - switch.mischpult
+    - switch.plattenspieler
+
+############################################################
+### Küche
+############################################################
+
+kuche:
+  name: Küche
+  icon: mdi:fridge
+  view: yes
+  entities:
+    - group.light_kuche
+    - media_player.home_kuche
+
+############################################################
+### Schlafzimmer
+############################################################
+
+schlafzimmer:
+  name: Schlafzimmer
+  icon: mdi:hotel
+  view: yes
+  entities:
+    - group.light_schlafzimmer
+    - media_player.home_schlafzimmer
+    - media_player.marshall
+
+############################################################
+### Badezimmer
+############################################################
+
+bad:
+  name: Bad
+  icon: mdi:scale-bathroom
+  view: yes
+  entities:
+    - media_player.badezimmer
+
+###########################################################
+### Shopping
+############################################################
+
+einkauf:
+  name: Shop
+  icon: mdi:basket
+  view: yes
+  entities:
+    - group.shopping
+
+############################################################
+### Einstellungen
+############################################################
+
+einstellungen:
+  name: Settings
+  icon: mdi:settings
+  view: yes
+  entities:
+    - group.systemmonitor
+    - group.gWiFI
+    - group.speedtest
+    - device_tracker.iphoene
+    - device_tracker.iphone_catherine_
+    - sensor.bitcoin_balance
+
+############################################################
+### Overview
+############################################################
+
+overview:
+  name: Overview
+  icon: mdi:database
+  view: yes
+  entities:
+    - group.all_automations
+    - group.all_remotes
+    - group.all_devices
+    - group.all_lights
+    - group.all_scripts
+    - group.all_switches
+    - group.all_sensors
+
+
