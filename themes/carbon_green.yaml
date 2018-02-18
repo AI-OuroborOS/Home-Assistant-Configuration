@@ -3,7 +3,7 @@ carbon-green:
   make-light-carbon: "#93A5AB"
   make-carbon: "#111924"
   make-grey: "#DEE5E7"
-  make-green: "#C2DD08"s
+  make-green: "#C2DD08"
   make-blue: "#00A3DA"
   make-red: "#EC5D57"
   make-yellow: "#FCF933"
