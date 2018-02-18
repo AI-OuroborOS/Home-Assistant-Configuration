@@ -14,21 +14,21 @@ carbon-green:
   background-color: "var(--make-grey)"
   dark-primary-color: "var(-make-carbon)"
   #Main Colors
-  primary-background-color: "var(--make-light-carbon)" #Hintergrund Farbe Einstellungen
-  secondary-background-color: "var(--make-grey)" #Hintergrund der Tabs
-  primary-text-color: "var(--make-carbon)" #Primärer Text 
-  secondary-text-color: "var(--make-green)" #Unterschriften etc.
-  disabled-text-color: "var(--make-disable)" #Deaktivierte Text
-  divider-color: "var(--make-green)" #Trenn Linien
-  primary-color: "var(--make-carbon)" #Head von HA 
+  primary-background-color: "var(--make-light-carbon)" #Background color settings
+  secondary-background-color: "var(--make-grey)" #Background tabs
+  primary-text-color: "var(--make-carbon)" #Primary Text 
+  secondary-text-color: "var(--make-green)" #sub text etc.
+  disabled-text-color: "var(--make-disable)" #Deactivated Text
+  divider-color: "var(--make-green)" #Divider Linies
+  primary-color: "var(--make-carbon)" #Head of HA 
   #Labels
   label-badge-red: "var(--make-red)"
   label-badge-blue: "var(--make-blue)"
   label-badge-green: "var(--make-green)"
   label-badge-yellow: "var(--make-yellow)"
   label-badge-grey: "var(--make-grey)"
-  label-badge-text-color: "var(--make-carbon)" #Schrift Sensoren
-  label-badge-background-color: "var(--make-grey)" #Hintergrund Sensoren
+  label-badge-text-color: "var(--make-carbon)" #Text color sensors
+  label-badge-background-color: "var(--make-grey)" #Background sensors
   #Google Loading
   google-red-500: "var(--make-red)"
   google-blue-500: "var(--make-blue)"
@@ -40,29 +40,29 @@ carbon-green:
   paper-orange-400: "var(--make-orange)"
   paper-grey-50: "var(--make-grey)"
   paper-grey-200: "var(--make-green)"
-  paper-item-icon-color: "var(--make-grey)" #Farbe der Icons Aus
-  paper-item-icon-active-color: "var(--make-green)" #Farbe der Icons An
+  paper-item-icon-color: "var(--make-grey)" #Color Icon off
+  paper-item-icon-active-color: "var(--make-green)" #Color Icon on
   paper-toggle-button-checked-ink-color: "var(--make-green)"
   paper-toggle-button-checked-button-color: "var(--make-green)"
   paper-toggle-button-checked-bar-color: "var(--make-green)"
   paper-toggle-button-unchecked-button-color: "var(--make-grey)"
   paper-toggle-button-unchecked-bar-color: "var(--make-grey)"
   paper-toggle-button-unchecked-ink-color: "var(--make-grey)"
-  paper-slider-knob-color: "var(--make-carbon)" #Slider Punkt AN
-  paper-slider-knob-start-color: "var(--make-carbon)" #Slider Punkt Aus
+  paper-slider-knob-color: "var(--make-carbon)" #Slider dot on
+  paper-slider-knob-start-color: "var(--make-carbon)" #Slider dot off
   paper-slider-pin-color: "var(--make-red)" #
-  paper-slider-active-color: "var(--make-carbon)" #Slider Strich Farbe Aktiv
+  paper-slider-active-color: "var(--make-carbon)" #Slider line active
   paper-slider-secondary-color: "var(--make-red)" #
-  paper-slider-container-color: "var(--make-light-carbon)" #Slider Strich Farbe Inaktiv
-  paper-listbox-color: "var(--make-carbon)"  #Text in Dorpdown box
-  paper-listbox-background-color: "var(--make-grey)" #Hintergrund von Listen 
-  paper-card-background-color: "var(--make-light-carbon)" #Hintergrund der Karten in einem Tab
-  paper-card-header-color: "var(--make-carbon)" #Überschriften in Einstellungen Karten
-  paper-dialog-background-color: "var(--make-grey)" #Farbe Dialog Boxen 
-  paper-item-selected_-_background-color: "var(--make-green)" #Ausgewählte Option in Dropdown
+  paper-slider-container-color: "var(--make-light-carbon)" #Slider line inactive
+  paper-listbox-color: "var(--make-carbon)"  #Text Dorpdown box
+  paper-listbox-background-color: "var(--make-grey)" #Background of Listen 
+  paper-card-background-color: "var(--make-light-carbon)" #Background from cards in tabs
+  paper-card-header-color: "var(--make-carbon)" #Headline Color of tabs
+  paper-dialog-background-color: "var(--make-grey)" #Color Dialog Box 
+  paper-item-selected_-_background-color: "var(--make-green)" #Selected Option in Dropdown
   paper-tabs-selection-bar-color: "var(--make-red)" #
-  table-row-background-color: "var(--make-grey)" #Hintergrund Farbe Tabellen 
-  table-row-alternative-background-color: "var(--make-gery)" #Zweite Hintergrundfarbe 
+  table-row-background-color: "var(--make-grey)" #Background color table 
+  table-row-alternative-background-color: "var(--make-gery)" #second color table 
   #Font
   primary-font-family: "Gill Sans"
   paper-font-common-base_-_font-family: "var(--primary-font-family)"
