@@ -42,6 +42,8 @@ carbon-green:
   paper-grey-200: "var(--make-green)"
   paper-item-icon-color: "var(--make-grey)" #Color Icon off
   paper-item-icon-active-color: "var(--make-green)" #Color Icon on
+  paper-button-ink-color: "var(--make-carbon)" #Color Button selected
+  paper-button-color: "var(--make-red)"
   paper-toggle-button-checked-ink-color: "var(--make-green)"
   paper-toggle-button-checked-button-color: "var(--make-green)"
   paper-toggle-button-checked-bar-color: "var(--make-green)"
