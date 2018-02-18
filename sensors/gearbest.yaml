@@ -1,0 +1,7 @@
+- platform: gearbest
+  currency: EUR
+  items:
+    - id: 954639
+      name: Xiaomi Vacuum 2
+    - id: 799071
+      name: Xiaomi Mi Mix 2

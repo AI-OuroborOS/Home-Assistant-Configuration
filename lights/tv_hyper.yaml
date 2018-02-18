@@ -1,0 +1,4 @@
+- platform: hyperion
+  host: !secret hyper_ip
+  port: !secret hyper_port
+  name: Hyperion

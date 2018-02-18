@@ -1,0 +1,12 @@
+- platform: flux_led 
+  automatic_add: True
+  devices:
+    192.168.86.11:
+      name: Fenster
+      mode: rgb
+    192.168.86.12:
+      name: Arbeitsfläche
+      mode: rgb
+    192.168.86.13:
+      name: Sidedesk
+      mode: rgb
