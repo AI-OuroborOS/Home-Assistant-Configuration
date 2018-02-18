@@ -1,8 +1,6 @@
 
 """
 Support for Dark Sky weather service.
-For more details about this platform, please refer to the documentation at
-https://home-assistant.io/components/sensor.darksky/
 """
 import logging
 from datetime import timedelta
