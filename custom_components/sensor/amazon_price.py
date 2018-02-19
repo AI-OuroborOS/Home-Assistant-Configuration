@@ -76,17 +76,11 @@ def AmzonParser(url):
             XPATH_CATEGORY = '//a[@class="a-link-normal a-color-tertiary"]//text()'
             XPATH_AVAILABILITY = '//div[@id="availability"]//text()'
  
-            RAW_NAME = doc.xpath(XPATH_NAME)
-            RAW_SALE_PRICE = doc.xpath(XPATH_SALE_PRICE)
-            RAW_CATEGORY = doc.xpath(XPATH_CATEGORY)
-            RAW_ORIGINAL_PRICE = doc.xpath(XPATH_ORIGINAL_PRICE)
-            RAw_AVAILABILITY = doc.xpath(XPATH_AVAILABILITY)
- 
-            NAME = ' '.join(''.join(RAW_NAME).split()) if RAW_NAME else None
-            SALE_PRICE = ' '.join(''.join(RAW_SALE_PRICE).split()).strip() if RAW_SALE_PRICE else None
-            CATEGORY = ' > '.join([i.strip() for i in RAW_CATEGORY]) if RAW_CATEGORY else None
-            ORIGINAL_PRICE = ''.join(RAW_ORIGINAL_PRICE).strip() if RAW_ORIGINAL_PRICE else None
-            AVAILABILITY = ''.join(RAw_AVAILABILITY).strip() if RAw_AVAILABILITY else None
+            NAME = ' '.join(''.join(doc.xpath(XPATH_NAME)).split()) if doc.xpath(XPATH_NAME) else None
+            SALE_PRICE = ' '.join(''.join(doc.xpath(XPATH_SALE_PRICE)).split()).strip() if doc.xpath(XPATH_SALE_PRICE) else None
+            CATEGORY = ' > '.join([i.strip() for i in doc.xpath(XPATH_CATEGORY)]) if doc.xpath(XPATH_CATEGORY) else None
+            ORIGINAL_PRICE = ''.join(doc.xpath(XPATH_ORIGINAL_PRICE)).strip() if doc.xpath(XPATH_ORIGINAL_PRICE) else None
+            AVAILABILITY = ''.join(doc.xpath(XPATH_AVAILABILITY)).strip() if doc.xpath(XPATH_AVAILABILITY) else None
 
     for item in items:
         try:
