@@ -57,6 +57,7 @@ systemmonitor:
     - sensor.sent_wlan0
     - sensor.last_boot
     - switch.rpi_display
+    - switch.rpi_leds
     - sensor.aktuelles_release
     - sensor.current_version
     - script.update_ha

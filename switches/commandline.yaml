@@ -3,3 +3,6 @@
     rpi_display:
       command_on: "sudo sh /home/pi/Skripts/screen_on.sh"
       command_off: "sudo sh /home/pi/Skripts/screen_off.sh"
+    rpi_leds:
+      command_on: "sudo bash /home/pi/Skripts/ledOn.sh"
+      command_off: "sudo bash /home/pi/Skripts/ledOn.sh"

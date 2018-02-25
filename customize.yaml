@@ -6,6 +6,10 @@ switch.rpi_display:
   icon: mdi:monitor
   friendly_name: HomePi Display
 
+switch.rpi_leds:
+  icon: mdi:led-on
+  friendly_name: HomePi Led's
+
 switch.tv_wall:
   icon: mdi:monitor
 
