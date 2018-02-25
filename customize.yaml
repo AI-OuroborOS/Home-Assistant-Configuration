@@ -87,7 +87,7 @@ sensor.dark_sky_temperature:
   friendly_name: Termperatur
 
 sensor.dark_sky_wind_speed:
-  entity_picture: /local/icons/darksky/png/wind.png
+  entity_picture: /local/icons/darksky/svg/wind.svg
   friendly_name: Windgeschwindigkeit
 
 sensor.dark_sky_humidity:

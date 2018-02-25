@@ -14,8 +14,8 @@
 "automation.schedule_window_lights_*":
   icon: mdi:windows
 
-"automation.schedule_rpi_display_*":
-  icon: mdi:monitor
+"automation.RPI*":
+  icon: mdi:chip
 
 ############################################################
 ### Groups
