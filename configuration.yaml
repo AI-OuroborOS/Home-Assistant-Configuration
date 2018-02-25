@@ -52,7 +52,7 @@ google_assistant:
     - light
 
 shell_command:
-  update_ha: "nohup bash /home/pi/Skripts/update_ha.sh </dev/null >/dev/null 2>&1"
+  update_ha: "sudo bash ../Skripts/update_ha.sh"
 
 
 #################################################################
