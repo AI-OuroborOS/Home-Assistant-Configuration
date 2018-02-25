@@ -52,7 +52,7 @@ google_assistant:
     - light
 
 shell_command:
-  update_ha: "sudo bash ../Skripts/update_ha.sh"
+  update_ha: "touch /home/pi/.homeassistant/updates/do"
 
 
 #################################################################
