@@ -25,8 +25,8 @@
   action:
     - service: switch.turn_on 
       entity_id: 
-        - switch.tv_wall
         - switch.rpi_displays
+        - switch.rpi_leds
 
 - alias: Presence Controll Off
   hide_entity: false
@@ -40,20 +40,24 @@
         - group.all_switches
         - group.all_lights
 
-- alias: Schedule RPI Display ON
+- alias: RPI WakeUp
   hide_entity: false
   trigger:
     - platform: time
       at: '09:00:00'
   action:
     - service: switch.turn_on 
-      entity_id: switch.rpi_display
+      entity_id: 
+        - switch.rpi_display
+        - switch.rpi_leds
 
-- alias: Schedule RPI Display OFF
+- alias: RPI GoingSleep
   hide_entity: false
   trigger:
     - platform: time
       at: '23:00:00'
   action:
     - service: switch.turn_off 
-      entity_id: switch.rpi_display
+      entity_id: 
+        - switch.rpi_display
+        - switch.rpi_leds
