@@ -14,7 +14,7 @@
 "automation.schedule_window_lights_*":
   icon: mdi:windows
 
-"automation.RPI*":
+"automation.rpi*":
   icon: mdi:chip
 
 ############################################################
