@@ -64,7 +64,6 @@ netatmo:
   secret_key: !secret neta_secret
   username: !secret mail
   password: !secret neta_pws
-  discovery: false
 
 #################################################################
 ## Includes

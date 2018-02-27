@@ -1,0 +1,6 @@
+#- platform: amazon_price
+#  items:
+#    - language: 'de'  
+#      asin: B00862UETQ
+#    - language: 'de'
+#      asin: B06WW1B8DZ

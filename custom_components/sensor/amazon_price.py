@@ -3,8 +3,8 @@ Parse prices of an item from amazon.
 
 custom_component by Mike Auer
 """
-import logging
 from datetime import timedelta
+import logging
 
 import voluptuous as vol
 
@@ -13,42 +13,97 @@ import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers.entity import Entity
 import homeassistant.util.dt as dt_util
 
-REQUIREMENTS = ['']
+REQUIREMENTS = ['lxml==4.1.1','requests==3.0']
+
 _LOGGER = logging.getLogger(__name__)
-DEFAULT_NAME = 'Amazon Price'
-CONF_COUNTRY = 'language'
-CONF_ASIN = 'asin'
 
-ICON = 'mdi:coin'
+CONF_ITEMS = 'items'
+CONF_ASIN = "asin"
+CONF_LANGUAGE = 'language'
 
-SCAN_INTERVAL = timedelta(minutes=240)
+ICON = 'mdi:coim'
+
+SCAN_INTERVAL = timedelta(minutes=60)
+
+_ITEM_SCHEMA = vol.All(
+    vol.Schema({
+        vol.Required(CONF_LANGUAGE): cv.string,
+        vol.Required(CONF_ASIN): cv.string,
+    })
+)
+
+_ITEMS_SCHEMA = vol.Schema([_ITEM_SCHEMA])
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
-      vol.Required(CONF_COUNTRY): cv.string,
-      vol.Required(CONF_ASIN): cv.string,
-})
+    vol.Required(CONF_ITEMS): _ITEMS_SCHEMA
+    })
 
 def setup_platform(hass, config, add_devices, discovery_info=None):
-    """Set up the Amazon sensor."""
-    country = config.get(CONF_COUNTRY)
-    asin = config.get(CONF_ASIN)
+    """Set up the Amazon Price Sensor."""
+    items = config.get(CONF_ITEMS)
+    language = config.get(CONF_LANGUAGE)
+    sensors = []
 
-    add_devices([AmazonSensor(country, asin)], True)
+    for item in items:
+        try:
+            sensors.append(AmazonPriceSensor(item))
+        except ValueError as exc:
+            _LOGGER.error(exc)
 
+    add_devices(sensors, True)
 
-class AmazonSensor(Entity):
-    """Implementation of the sensor."""
+class AmazonPriceSensor(Entity):
+    """Implementation of a Amazon Price sensor."""
 
-    def __init__(self, country, asin):
+    def __init__(self, item):
         """Initialize the sensor."""
-      self._name = DEFAULT_NAME
-      self.data = AmazonPriceParser(country, asin)
-      self._state = None
+        from lxml import html  
+        import requests
+
+        url = "https://www.amazon."+item.get(CONF_LANGUAGE)+"/dp/"+item.get(CONF_ASIN)+"/"
+        headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36'}
+        page = requests.get(url,headers=headers)
+        try:
+            #Get all the Data from Amazon
+            doc = html.fromstring(page.content)
+            RAW_NAME = doc.xpath('//h1[@id="title"]//text()')
+            RAW_SALE_PRICE = doc.xpath('//span[contains(@id,"ourprice") or contains(@id,"saleprice")]/text()')
+            RAW_CATEGORY = doc.xpath('//a[@class="a-link-normal a-color-tertiary"]//text()')
+            RAW_ORIGINAL_PRICE = doc.xpath('//td[contains(text(),"List Price") or contains(text(),"M.R.P") or contains(text(),"Price")]/following-sibling::td/text()')
+            RAw_AVAILABILITY = doc.xpath('//div[@id="availability"]//text()')
+
+            #Parse everthing together
+            NAME = ' '.join(''.join(RAW_NAME).split()) if RAW_NAME else None
+            SALE_PRICE = ' '.join(''.join(RAW_SALE_PRICE).split()).strip() if RAW_SALE_PRICE else None
+            CATEGORY = ' > '.join([i.strip() for i in RAW_CATEGORY]) if RAW_CATEGORY else None
+            ORIGINAL_PRICE = ''.join(RAW_ORIGINAL_PRICE).strip() if RAW_ORIGINAL_PRICE else None
+            AVAILABILITY = ''.join(RAw_AVAILABILITY).strip() if RAw_AVAILABILITY else None
+
+            #Get the Product Image for the Icon
+            #RAW_IMAGE = doc.xpath('//div[@id="HLCXComparisonWidget_feature_div"]//img[@alt="'+NAME+'"]/@src')
+
+            #IMAGE = ' '.join(''.join(RAW_IMAGE).split()) if RAW_IMAGE else None
+
+            if not ORIGINAL_PRICE:
+                ORIGINAL_PRICE = SALE_PRICE
+
+            if page.status_code!=200:
+                raise ValueError('The requested item page returned: HTTP'+page.status_code+'please check asin and language')
+
+            #Write into variables
+            self._item = [NAME, SALE_PRICE, CATEGORY, ORIGINAL_PRICE, AVAILABILITY]
+
+            if self._item is None:
+                raise ValueError("id and url could not be resolved")
+
+        except Exception as e:
+            raise ValueError(e)
+
 
     @property
     def name(self):
-        """Return the name of the item."""
-        return self._name
+        """Return the name of the sensor."""
+        return self._item[0]
 
     @property
     def icon(self):
@@ -57,74 +112,20 @@ class AmazonSensor(Entity):
 
     @property
     def state(self):
-        """Return the state of the sensor."""
-        return self._state
+        """Return the departure time of the next train."""
+        return self._item[1]
+
+    @property
+    def device_state_attributes(self):
+        """Return the state attributes."""
+        return self._item[1]
 
     def update(self):
-        """Fetch new state data for the sensor.
+        """Get the latest delay from bahn.de and updates the state."""
+	for item in items:
+            try:
+            sensors.append(AmazonPriceSensor(item))
+            except ValueError as exc:
+            _LOGGER.error(exc)
 
-        This is the only method that should fetch new data for Home Assistant.
-        """
-        self.data.update()
-        
-class AmazonPriceParser(object):
-
-    def __init__(self, country, asin):
-        from lxml import html
-        import csv,os,json
-        import requests
-        from time import sleep
-
-        self.country = country
-        self.asin = asin
-        self.products = [{}]
-        
-        def ReadAsin():
-    # AsinList = csv.DictReader(open(os.path.join(os.path.dirname(__file__),"Asinfeed.csv")))
-    AsinList = self.asin
-    extracted_data = []
-    for i in AsinList:
-        url = "https://www.amazon.de/dp/"+i
-        extracted_data.append(AmzonParser(url))
-        sleep(3)
-    self.products = data
-
-
-
-        def AmzonParser(url):
-            headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36'}
-            page = requests.get(url,headers=headers)
-            while True:
-                sleep(3)
-                try:
-                    doc = html.fromstring(page.content)
-                    XPATH_NAME = '//h1[@id="title"]//text()'
-                    XPATH_SALE_PRICE = '//span[contains(@id,"ourprice") or contains(@id,"saleprice")]/text()'
-                    XPATH_ORIGINAL_PRICE = '//td[contains(text(),"List Price") or contains(text(),"M.R.P") or contains(text(),"Price")]/following-sibling::td/text()'
-                    XPATH_CATEGORY = '//a[@class="a-link-normal a-color-tertiary"]//text()'
-                    XPATH_AVAILABILITY = '//div[@id="availability"]//text()'
-                    
-                    NAME = ' '.join(''.join(doc.xpath(XPATH_NAME)).split()) if doc.xpath(XPATH_NAME) else None
-                    SALE_PRICE = ' '.join(''.join(doc.xpath(XPATH_SALE_PRICE)).split()).strip() if doc.xpath(XPATH_SALE_PRICE) else None
-                    CATEGORY = ' > '.join([i.strip() for i in doc.xpath(XPATH_CATEGORY)]) if doc.xpath(XPATH_CATEGORY) else None
-                    ORIGINAL_PRICE = ''.join(doc.xpath(XPATH_ORIGINAL_PRICE)).strip() if doc.xpath(XPATH_ORIGINAL_PRICE) else None
-                    AVAILABILITY = ''.join(doc.xpath(XPATH_AVAILABILITY)).strip() if doc.xpath(XPATH_AVAILABILITY) else None
-                    
-                    if not ORIGINAL_PRICE:
-                        ORIGINAL_PRICE = SALE_PRICE
-                        
-                        if page.status_code!=200:
-                            raise ValueError('captha')
-                            
-                            data = {
-                                'NAME':NAME,
-                                'SALE_PRICE':SALE_PRICE,
-                                'CATEGORY':CATEGORY,
-                                'ORIGINAL_PRICE':ORIGINAL_PRICE,
-                                'AVAILABILITY':AVAILABILITY,
-                                'URL':url,
-                                }
-                            return data
- 
-
- 
+        self.state = self._item[1]
