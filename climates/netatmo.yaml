@@ -1,6 +1,6 @@
-- platform: netatmo
-  relay: Relais
-  thermostat:
-    - Bad
-    - Wohnzimmer
-    - Schlafzimmer
+#- platform: netatmo
+#  relay: Relais
+#  thermostat:
+#    - Bad
+#    - Wohnzimmer
+#    - Schlafzimmer
