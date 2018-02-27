@@ -80,9 +80,8 @@ class AmazonPriceSensor(Entity):
             AVAILABILITY = ''.join(RAw_AVAILABILITY).strip() if RAw_AVAILABILITY else None
 
             #Get the Product Image for the Icon
-            #RAW_IMAGE = doc.xpath('//div[@id="HLCXComparisonWidget_feature_div"]//img[@alt="'+NAME+'"]/@src')
-
-            #IMAGE = ' '.join(''.join(RAW_IMAGE).split()) if RAW_IMAGE else None
+            RAW_IMAGE = doc.xpath('//img[@id="landingImage" and @alt="'+NAME+'"]/@data-a-dynamic-image')
+            IMAGE = ' '.join(''.join(RAW_IMAGE).split()) if RAW_IMAGE else None
 
             if not ORIGINAL_PRICE:
                 ORIGINAL_PRICE = SALE_PRICE
@@ -91,7 +90,7 @@ class AmazonPriceSensor(Entity):
                 raise ValueError('The requested item page returned: HTTP'+page.status_code+'please check asin and language')
 
             #Write into variables
-            self._item = [NAME, SALE_PRICE, CATEGORY, ORIGINAL_PRICE, AVAILABILITY]
+            self._item = [NAME, SALE_PRICE, CATEGORY, ORIGINAL_PRICE, AVAILABILITY, IMAGE, url]
 
             if self._item is None:
                 raise ValueError("id and url could not be resolved")
@@ -116,16 +115,22 @@ class AmazonPriceSensor(Entity):
         return self._item[1]
 
     @property
+    def entity_picture(self):
+        """Return the image."""
+        pre_img = self._item[5].split("._",1)[0]+".jpg"
+        img = pre_img.split('{\"',1)[1]
+        return img
+
+    @property
     def device_state_attributes(self):
         """Return the state attributes."""
-        return self._item[1]
+        attrs = {'Name': self._item[0],
+                 'Category': self._item[2],
+                 'Original Price': self._item[3],
+                 'Availability': self._item[4],
+                 'Item URL': self._item[6]}
+        return attrs
 
     def update(self):
         """Get the latest delay from bahn.de and updates the state."""
-	for item in items:
-            try:
-            sensors.append(AmazonPriceSensor(item))
-            except ValueError as exc:
-            _LOGGER.error(exc)
 
-        self.state = self._item[1]
