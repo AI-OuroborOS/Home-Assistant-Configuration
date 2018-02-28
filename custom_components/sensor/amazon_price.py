@@ -126,7 +126,7 @@ class AmazonPriceSensor(Entity):
             IMAGE = ' '.join(''.join(RAW_IMAGE).split()) if RAW_IMAGE else None
             if IMAGE is not None:
                 ex_img = IMAGE.split("._",1)[0]+".jpg"
-                IMAGE = ex_img.split('{\"',1)[1]
+                IMAGE = ex_img.split('"',1)[1]
             else:
                 None
                 
