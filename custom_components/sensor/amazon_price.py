@@ -84,9 +84,7 @@ class AmazonPriceSensor(Entity):
     @property
     def entity_picture(self):
         """Return the image."""
-        pre_img = self._item[5].split("._",1)[0]+".jpg"
-        img = pre_img.split('{\"',1)[1]
-        return img
+        return self._item[5]
 
     @property
     def device_state_attributes(self):
@@ -126,6 +124,8 @@ class AmazonPriceSensor(Entity):
             #Get the Product Image for the Icon
             RAW_IMAGE = doc.xpath('//div[@id="imgTagWrapperId"]//img[@alt="'+NAME+'"]/@data-a-dynamic-image')
             IMAGE = ' '.join(''.join(RAW_IMAGE).split()) if RAW_IMAGE else None
+            ex_img = IMAGE.split("._",1)[0]+".jpg"
+            IMAGE = ex_img.split('{\"',1)[1]
 
             if not ORIGINAL_PRICE:
                 ORIGINAL_PRICE = SALE_PRICE
