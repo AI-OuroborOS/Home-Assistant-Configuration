@@ -83,23 +83,23 @@ sensor.dark_sky_summary:
   friendly_name: Zusammenfassung
 
 sensor.dark_sky_temperature:
-  entity_picture: /local/icons/temp.png
+  entity_picture: /local/icons/thermometer-1.svg
   friendly_name: Termperatur
 
 sensor.dark_sky_wind_speed:
-  entity_picture: /local/icons/darksky/svg/wind.svg
+  entity_picture: /local/icons/darksky/wind.svg
   friendly_name: Windgeschwindigkeit
 
 sensor.dark_sky_humidity:
-  entity_picture: /local/icons/raindrop.png
+  entity_picture: /local/icons/darksky/raindrop.svg
   friendly_name: Luftfeuchtigkeit
   
 sensor.dark_sky_daily_low_temperature:
-  entity_picture: /local/icons/low_temp.png
+  entity_picture: /local/icons/darksky/thermometer.svg
   friendly_name: Tiefst Temperatur  
 
 sensor.dark_sky_daily_high_temperature:
-  entity_picture: /local/icons/high_temp.png
+  entity_picture: /local/icons/darksky/thermometer-2.svg
   friendly_name: Höchst Temperatur
 
 sensor.otp_sensor:
