@@ -121,7 +121,7 @@ class AmazonPriceSensor(Entity):
             SALE_PRICE = ' '.join(''.join(RAW_SALE_PRICE).split()).strip() if RAW_SALE_PRICE else None
             CATEGORY = ' > '.join([i.strip() for i in RAW_CATEGORY]) if RAW_CATEGORY else None
             ORIGINAL_PRICE = ''.join(RAW_ORIGINAL_PRICE).strip() if RAW_ORIGINAL_PRICE else None
-            AVAILABILITY = ''.join(RAw_AVAILABILITY).strip() if RAW_AVAILABILITY else None
+            AVAILABILITY = ''.join(RAW_AVAILABILITY).strip() if RAW_AVAILABILITY else None
 
             #Get the Product Image for the Icon
             RAW_IMAGE = doc.xpath('//img[@id="landingImage" and @alt="'+NAME+'"]/@data-a-dynamic-image')
