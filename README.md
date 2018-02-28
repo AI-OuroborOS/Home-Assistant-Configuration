@@ -1,4 +1,4 @@
-#Home-Assistant Config 
+# Home-Assistant Config 
 
 This is my implementation of Home-Assistant with a custom amazon_price sensor created by me
 
@@ -6,7 +6,7 @@ To use it simply copy the amazon_price.py from custom_components/sensor/ to your
 
 entry in your configuration.yaml
 
-#CONFIGURATION VARIABLES
+# CONFIGURATION VARIABLES
 
 domain_ending
 (string)(Required)The location Part of the amazon url: E.g. com, de, co.uk etc.
@@ -14,7 +14,7 @@ domain_ending
     name: (string)(Optional)The name of the item. If not set, it is parsed from the website.
     domain_ending: (string)(Optional)Overwrite the domain_ending for the current item.
 
-#Example
+# Example
 ```yaml
 sensor:
   - platform: amazon_price
