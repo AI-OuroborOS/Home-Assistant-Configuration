@@ -124,9 +124,12 @@ class AmazonPriceSensor(Entity):
             #Get the Product Image for the Icon
             RAW_IMAGE = doc.xpath('//div[@id="imgTagWrapperId"]//img[@alt="'+NAME+'"]/@data-a-dynamic-image')
             IMAGE = ' '.join(''.join(RAW_IMAGE).split()) if RAW_IMAGE else None
-            ex_img = IMAGE.split("._",1)[0]+".jpg"
-            IMAGE = ex_img.split('{\"',1)[1]
-
+            if IMAGE is not None:
+                ex_img = IMAGE.split("._",1)[0]+".jpg"
+                IMAGE = ex_img.split('{\"',1)[1]
+            else:
+                None
+                
             if not ORIGINAL_PRICE:
                 ORIGINAL_PRICE = SALE_PRICE
 
