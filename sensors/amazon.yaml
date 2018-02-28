@@ -1,6 +1,3 @@
-#- platform: amazon_price
-#  items:
-#    - language: 'de'  
-#      asin: B00862UETQ
-#    - language: 'de'
-#      asin: B06WW1B8DZ
+- platform: amazon_price
+  domain_ending: 'de'
+  items: !secret amzn_items
