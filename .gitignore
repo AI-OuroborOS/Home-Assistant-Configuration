@@ -11,3 +11,5 @@ project.json
 gactions
 creds.data
 entity_registry.yaml
+.HA_VERSION
+.uuid

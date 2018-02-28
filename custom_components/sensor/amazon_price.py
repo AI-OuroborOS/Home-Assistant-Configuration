@@ -100,6 +100,7 @@ class AmazonPriceSensor(Entity):
     def update(self):
         """Update all Data every 2h"""
         from lxml import html  
+        import re
         import requests
 
         url = "https://www.amazon."+self._updateitem.get(CONF_DOMAIN, self._domain)+"/dp/"+self._updateitem.get(CONF_ASIN)+"/"
@@ -122,14 +123,13 @@ class AmazonPriceSensor(Entity):
             AVAILABILITY = ''.join(RAW_AVAILABILITY).strip() if RAW_AVAILABILITY else None
 
             #Get the Product Image for the Icon
-            RAW_IMAGE = doc.xpath('//div[@id="imgTagWrapperId"]//img[@alt="'+NAME+'"]/@data-a-dynamic-image')
-            IMAGE = ' '.join(''.join(RAW_IMAGE).split()) if RAW_IMAGE else None
-            if IMAGE is not None:
-                ex_img = IMAGE.split("._",1)[0]+".jpg"
-                IMAGE = ex_img.split('"',1)[1]
+            RAW_IMAGE = doc.xpath('//div[@id="leftCol"]//img/@data-a-dynamic-image')
+            if RAW_IMAGE is not None:
+                INDEX = [match.start() for match in re.finditer(re.escape('"'), RAW_IMAGE[0])]
+                IMAGE = RAW_IMAGE[0][INDEX[0]+1:INDEX[1]]
             else:
-                None
-                
+                IMAGE = ICON
+
             if not ORIGINAL_PRICE:
                 ORIGINAL_PRICE = SALE_PRICE
 
@@ -144,3 +144,4 @@ class AmazonPriceSensor(Entity):
 
         except Exception as e:
             raise ValueError(e)
+
