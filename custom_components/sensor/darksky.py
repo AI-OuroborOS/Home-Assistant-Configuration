@@ -101,16 +101,16 @@ SENSOR_TYPES = {
 }
 
 CONDITION_PICTURES = {
-    'clear-day': '/local/icons/darksky/svg/sun.svg',
-    'clear-night': '/local/icons/darksky/svg/moon-phases-5.svg',
-    'rain': '/local/icons/darksky/svg/weather-pouring.svg',
-    'snow': '/local/icons/darksky/svg/snowflake.svg',
-    'sleet': '/local/icons/darksky/svg/hail.svg',
-    'wind': '/local/icons/darksky/svg/wind.svg',
-    'fog': '/local/icons/darksky/svg/tornado.svg',
-    'cloudy': '/local/icons/darksky/svg/cloudy-1.svg',
-    'partly-cloudy-day': '/local/icons/darksky/svg/cloudy.svg',
-    'partly-cloudy-night': '/local/icons/darksky/svg/cloud.svg',
+    'clear-day': '/local/icons/darksky/sun.svg',
+    'clear-night': '/local/icons/darksky/moon-phases-5.svg',
+    'rain': '/local/icons/darksky/weather-pouring.svg',
+    'snow': '/local/icons/darksky/snowflake.svg',
+    'sleet': '/local/icons/darksky/hail.svg',
+    'wind': '/local/icons/darksky/wind.svg',
+    'fog': '/local/icons/darksky/tornado.svg',
+    'cloudy': '/local/icons/darksky/cloudy-1.svg',
+    'partly-cloudy-day': '/local/icons/darksky/cloudy.svg',
+    'partly-cloudy-night': '/local/icons/darksky/cloud.svg',
 }
 
 

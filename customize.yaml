@@ -83,7 +83,7 @@ sensor.dark_sky_summary:
   friendly_name: Zusammenfassung
 
 sensor.dark_sky_temperature:
-  entity_picture: /local/icons/thermometer-1.svg
+  entity_picture: /local/icons/darksky/thermometer-1.svg
   friendly_name: Termperatur
 
 sensor.dark_sky_wind_speed:
