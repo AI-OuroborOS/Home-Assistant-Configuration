@@ -124,7 +124,7 @@ class AmazonPriceSensor(Entity):
             AVAILABILITY = ''.join(RAW_AVAILABILITY).strip() if RAW_AVAILABILITY else None
 
             #Get the Product Image for the Icon
-            RAW_IMAGE = doc.xpath('//li[@class="image item itemNo0 selected maintain-height"]/span[@class="a-list-item"]/span[@class="a-declarative"]/div[@id="imgTagWrapperId"]/img[@alt="'+NAME+'"]@data-a-dynamic-image')
+            RAW_IMAGE = doc.xpath('//div[@id="imgTagWrapperId"]/img[@alt="'+NAME+'"]@data-a-dynamic-image')
             IMAGE = ' '.join(''.join(RAW_IMAGE).split()) if RAW_IMAGE else None
 
             if not ORIGINAL_PRICE:
