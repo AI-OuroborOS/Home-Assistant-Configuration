@@ -163,3 +163,14 @@ shopping:
   entities:
     - sensor.xiaomi_vacuum_2
     - sensor.xiaomi_mi_mix_2
+    - sensor.sonos_stativ
+    - sensor.phono_soundkarte
+    - sensor.iRobot_staubsauger
+    - sensor.aurora
+    - sensor.waffeleisen
+    - sensor.sonos_playbar
+    - sensor.heißluft_fritöse
+    - sensor.sonos_sub
+    - sensor.rasier_messer
+    - sensor.elie_saab
+    - sensor.uhren_box
