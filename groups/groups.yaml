@@ -151,6 +151,7 @@ harmony:
   name: Harmony
   icon: mdi:sofa
   entities:
+    - switch.tv_wall
     - remote.harmony_hub
     - input_select.tv_source
 
