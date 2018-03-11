@@ -90,7 +90,7 @@ einstellungen:
     - group.gWiFI
     - group.speedtest
     - device_tracker.iphoene
-    - device_tracker.iphone_catherine_
+    - device_tracker.iphone_von_catherine
     - sensor.bitcoin_balance
 
 ############################################################
