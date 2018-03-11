@@ -26,11 +26,11 @@ script.update_ha:
 ############################################################
 
 device_tracker.iphoene:
-  entity_picture: /local/pictures/mike.png
+  entity_picture: /local/pictures/mike.svg
   friendly_name: Mike
 
-device_tracker.iphone_catherine_:
-  entity_picture: /local/pictures/katharina.png
+device_tracker.iphone_von_catherine:
+  entity_picture: /local/pictures/katharina.svg
   friendly_name: Katharina
 
 ############################################################
