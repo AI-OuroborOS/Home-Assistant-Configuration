@@ -151,6 +151,6 @@ class AmazonPriceSensor(Entity):
             if self._item is None:
                 raise ValueError('asin or domain could not be resolved')
 
-       # except Exception as e:
-        #    raise ValueError(e)
+        except Exception as e:
+            raise ValueError(e)
 
