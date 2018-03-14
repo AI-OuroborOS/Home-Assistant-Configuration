@@ -90,10 +90,13 @@ class AmazonPriceSensor(Entity):
     def device_state_attributes(self):
         """Return the state attributes."""
         attrs = {'Name': self._item[0],
+                 'Seller': self._item[7],
                  'Category': self._item[2],
                  'Original Price': self._item[3],
                  'Availability': self._item[4],
-                 'Item URL': self._item[6]}
+                 'Item URL': self._item[6],
+                 'Blank Sale Price': self._item[8],
+                 'Blank Original price': self._item[9]}
         return attrs
 
     @Throttle(MIN_TIME_BETWEEN_UPDATES)
@@ -114,13 +117,18 @@ class AmazonPriceSensor(Entity):
             RAW_CATEGORY = doc.xpath('//a[@class="a-link-normal a-color-tertiary"]//text()')
             RAW_ORIGINAL_PRICE = doc.xpath('//div[@id="price"]/table[@class="a-lineitem"]/tr/td[2]/span[@class="a-text-strike"]/text()')
             RAW_AVAILABILITY = doc.xpath('//div[@id="availability"]//text()')
+            RAW_SELLER = doc.xpath('//a[@id="brand"]//text()')
 
             #Parse everthing
             NAME = ' '.join(''.join(RAW_NAME).split()) if RAW_NAME else None
-            SALE_PRICE = ' '.join(''.join(RAW_SALE_PRICE).split()).strip() if RAW_SALE_PRICE else None
+            SALE_CURRENCY,SALE_BPRC = (''.join(''.join(RAW_SALE_PRICE).split()).strip()).split(' ') if RAW_SALE_PRICE else None
             CATEGORY = ' > '.join([i.strip() for i in RAW_CATEGORY]) if RAW_CATEGORY else None
-            ORIGINAL_PRICE = ''.join(RAW_ORIGINAL_PRICE).strip() if RAW_ORIGINAL_PRICE else None
+            ORIGINAL_CURRENCY,ORIGINAL_BPRC = (''.join(RAW_ORIGINAL_PRICE).strip()).split(' ') if RAW_ORIGINAL_PRICE else None
             AVAILABILITY = ''.join(RAW_AVAILABILITY).strip() if RAW_AVAILABILITY else None
+            SELLER = ' '.join(''.join(RAW_SELLER).split()) if RAW_SELLER else None
+
+            SALE_PRICE = SALE_BPRC+' '+SALE_CURRENCY
+            ORIGINAL_PRICE = ORIGINAL_BPRC+' '+ORIGINAL_CURRENCY
 
             #Get the Product Image for the Icon
             RAW_IMAGE = doc.xpath('//div[@id="leftCol"]//img/@data-a-dynamic-image')
@@ -132,16 +140,17 @@ class AmazonPriceSensor(Entity):
 
             if not ORIGINAL_PRICE:
                 ORIGINAL_PRICE = SALE_PRICE
+                ORIGINAL_BPRC = SALE_BPRC
 
             if page.status_code!=200:
                 raise ValueError('The requested item page returned: HTTP'+page.status_code+'please check asin and domain ending')
 
             #Write into variables
-            self._item = [NAME, SALE_PRICE, CATEGORY, ORIGINAL_PRICE, AVAILABILITY, IMAGE, url]
+            self._item = [NAME, SALE_PRICE, CATEGORY, ORIGINAL_PRICE, AVAILABILITY, IMAGE, url, SELLER, SALE_BPRC, ORIGINAL_BPRC]
 
             if self._item is None:
                 raise ValueError('asin or domain could not be resolved')
 
-        except Exception as e:
-            raise ValueError(e)
+       # except Exception as e:
+        #    raise ValueError(e)
 
