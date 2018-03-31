@@ -40,8 +40,3 @@ sensor.*current_version:
 
 "*plattenspiele*":
   icon: mdi:album
-
-"*ip*":
-  icon: mdi:wifi
-  friendly_name: IP
-
